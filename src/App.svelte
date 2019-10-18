@@ -88,4 +88,4 @@
 	<button type="submit" formtarget="output">Готово</button>
 </form>
 
-<iframe title='output' name="output">Hi</iframe>
+<iframe title='output' name="output"></iframe>
