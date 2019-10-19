@@ -10,7 +10,7 @@
 	let sessions = [];
 
 	onMount(async () => {
-		axios.get('http://localhost:8080/sessions').then(res => sessions = res.data);
+		axios.get('https://realtimepoll-server.herokuapp.com/sessions').then(res => sessions = res.data);
 	});
 </script>
 <style>
@@ -46,7 +46,7 @@
 
 </style>
 
-<form action='http://localhost:8080/results' 
+<form action='https://realtimepoll-server.herokuapp.com/results' 
 	oninput='document.getElementsByName("output")[0].src="about:blank"' 
 	method="POST" 
 	onsubmit="this.submit(); this.reset();">
