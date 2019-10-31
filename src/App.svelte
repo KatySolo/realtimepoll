@@ -4,7 +4,8 @@
 	let sessions = [];
 
 	onMount(async () => {
-		axios.get('https://realtimepoll-server.herokuapp.com/sessions').then(res => sessions = res.data);
+		// axios.get('https://realtimepoll-server.herokuapp.com/sessions').then(res => sessions = res.data);
+		axios.get('http://localhost:8080/sessions').then(res => sessions = res.data);
 	});
 </script>
 <style>
@@ -39,9 +40,15 @@
 		display: block;
 	}
 
+	.comment_title {
+		width: 250px;
+		font-size: 16px;
+	}
+
 </style>
 
-<form action='https://realtimepoll-server.herokuapp.com/results' 
+<!-- <form action='https://realtimepoll-server.herokuapp.com/results'  -->
+<form action='http://localhost:8080/results' 
 	oninput='document.getElementsByName("output")[0].src="about:blank"' 
 	method="POST" >
 	<div class='header'>
@@ -60,24 +67,25 @@
 
 	<table class='dataInputs'>
 	<tr>
-		<td>Ф(А)</td>
-		<td><input type=number name="fa" min=0 max=10></td>
-		<td>Ф(Д)</td>
-		<td><input type=number name="fd" min=0 max=10></td>
+		<td>Я - лектор</td>
+		<td><input type="checkbox" name="lector"></td>
 	</tr>
 	<tr>
-		<td>C(А)</td>
-		<td><input type=number name="ca" min=0 max=10></td>
-		<td>C(Д)</td>
-		<td><input type=number name="cd" min=0 max=10></td>
+		<td>Форма</td>
+		<td><input type=number name="form" min=0 max=10 placeholder=5></td>
 	</tr>
 	<tr>
-		<td>И(А)</td>
-		<td><input type=number name="ia" min=0 max=10 ></td>
-		<td>И(Д)</td>
-		<td><input type=number name="id" min=0 max=10></td>
+		<td>Содержание</td>
+		<td><input type=number name="content" min=0 max=10 placeholder=5></td>
+	</tr>
+	<tr>
+		<td>Интерес</td>
+		<td><input type=number name="interest" min=0 max=10 placeholder=5></td>
 	</tr>
 	</table>
+
+	<p class='comment_title'>Напиши, что ты думаешь о лекции и о лекторе, что понравилось, а что можно подтянуть</p>
+	<textarea name='comment' cols="20" rows="5"></textarea>
 
 	<button type="reset">Очистить</button>
 	<button type="submit" formtarget="output">Готово</button>
