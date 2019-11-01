@@ -83,7 +83,7 @@
     }
 </style>
 
-<form action='https://realtimepoll-server.herokuapp.com:8080/results' 
+<form action='https://realtimepoll-server.herokuapp.com/results' 
 	oninput='document.getElementsByName("output")[0].src="about:blank"' 
 	method="POST" >
 	<div class='header'>
