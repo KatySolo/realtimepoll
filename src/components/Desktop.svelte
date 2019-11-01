@@ -8,7 +8,6 @@
         margin: 0 auto;
         width: 50%;
         padding: 5px 10px;
-        border: 1px black solid;
         display: flex;
         flex-direction: column;
         justify-items: center;
@@ -52,7 +51,6 @@
     iframe {
         align-self: center;
         border: 0;
-        display: none;
     }
 </style>
 
