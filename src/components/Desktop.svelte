@@ -13,11 +13,40 @@
         justify-items: center;
     }
 
-    .header,
     table {
         display: flex;
         justify-content: space-around;
         align-items: center;
+    }
+
+    .name-input {
+        display: flex;
+        justify-content: center;
+    
+    }
+
+    .selectSession {
+        display: flex;
+        width: fit-content;
+        margin: 10px auto;
+    }
+
+    select {
+        margin: 0;
+    }
+
+    .select-lable {
+        margin: auto 5px;
+    }
+
+    .lector-checkbox,
+    .usernameInput {
+        margin: 0 5px;
+    }
+
+    .lector-label {
+        height: fit-content;
+        margin: auto 5px auto 0px;
     }
 
     table {
@@ -54,12 +83,12 @@
     }
 </style>
 
-<form action='https://realtimepoll-server.herokuapp.com/results' 
+<form action='https://realtimepoll-server.herokuapp.com:8080/results' 
 	oninput='document.getElementsByName("output")[0].src="about:blank"' 
 	method="POST" >
 	<div class='header'>
 		<div class='selectSession'>
-			Выберите сессию
+			<label class='select-lable'>Выберите сессию</label>
 			<select class='sessionSelect' name='sessionId'>
 				{#each sessions as session}
 					<option value={session.id}>{session.name}</option>
@@ -68,11 +97,10 @@
 				{/each}
 			</select>
 		</div>
-         <div class='lector_checkbox'>
-            Я - лектор 
-            <input type="checkbox" name="lector">
+        <div class='name-input'>
+            <label for="lector" class='lector-label'>Я - лектор <input type="checkbox" name="lector" id="lector" class='lector-checkbox'></label>
+		    <input class='usernameInput' type="text" placeholder="Введите имя" name='username'>
         </div>
-		<input class='usernameInput' type="text" placeholder="Введите имя" name='username'>
 	</div>
 
 	<table class='dataInputs'>
